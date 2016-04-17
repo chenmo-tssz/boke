@@ -1,128 +1,62 @@
-<!DOCTYPE HTML>
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Simple</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/loading.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="template/css/entry.css">
-    <link rel="stylesheet" type="text/css" href="template/css/prism.css">
-    <script src="lib/jquery.js"></script>
-    <script src="lib/underscore.js"></script>
-    <script src="lib/base64.js"></script>
-    <script src="lib/github.js"></script>
-    <script src="lib/spine.js"></script>
-    <script src="lib/route.js"></script>
-    <script src="lib/manager.js"></script>
-    <script src="template/js/hogan.min.js"></script>
-    <script src="lib/showdown.js"></script>
-    <script src="template/js/prism.js"></script>
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <script src="app.js"></script>
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Boke</title>
+  <meta name="description" content="A static blog generator with a single static page">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
 </head>
+
 <body>
-<div class="container">
-<div id="views">
-    <div id="login">
-        <a id="fork" href="https://github.com/isnowfy/simple" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label>Github username</label>
-                <div>
-                    <input type="text" name="user" class="form-control" id="loginuser">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <div>
-                    <input type="password" name="pass" class="form-control" id="loginpass">
-                </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <input type="submit" class="btn btn-default" value="Sign in" id="loginsubmit">
-                    <span class="label label-danger" id="loginerror" style="display: none;">Something error!</span>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div id="main">
-        <div class="block">
-        <h2>Create a repository</h2>
-        <p>Head over to <a href="https://github.com">GitHub</a> and <a href="https://github.com/new">create a new repository</a> named username.github.io, where username is your username on GitHub.(Please selected the "<span style="color:red">Initialize this repository with a README</span>" when creating the repo.)</p>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Boke</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A static blog generator with a single static page</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/chenmo-tssz/boke/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/chenmo-tssz/boke/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/chenmo-tssz/boke" class="code">View Boke on GitHub</a>
         </div>
-        <div class="block">
-        <h2>Initialize the repository (just the first)</h2>
-        <p><a class="btn btn-primary" id="init">Initialize</a></p>
-        <p><span class="label label-danger" id="initerror" style="display: none;">Error! Please try again!</span></p>
-        <p><span class="label label-success" id="initok" style="display: none;">Initialzition has completed!</span></p>
+        <span class="blc"></span><span class="trc"></span>
         </div>
-        <div class="block">
-        <h2>Go to write</h2>
-        <p>If you had initialized the repository you can go to next page directly.</p>
-        <p><a class="btn btn-primary" id="go">Go</a></p>
-        </div>
-        </p>
+        <article class="markdown-body">
+          <p>ddsa d </p>
+        </article>
+      </div>
     </div>
-    <div id="posts" class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 col-md-3 sidebar">
-                <a class="nav-btn btn btn-default" href="#/posts/newpost">New post</a>
-                <ul class="nav nav-sidebar" id="postItems">
-                </ul>
-                <a class="nav-btn btn btn-default" href="#/posts/newpage">New page</a>
-                <ul class="nav nav-sidebar" id="pageItems">
-                </ul>
-            </div>
-            <div class="post-content col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3">
-                <div class="post-wrap-header">
-                <div class="page-header">
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="posttitle" placeholder="Title">
-                            <input type="text" class="form-control" id="postpath" placeholder="Url like intro.html">
-                            <input type="text" class="form-control" id="postdate" placeholder="2014-02-01">
-                            <input type="text" class="form-control" id="posttags" placeholder="Tags split with space">
-                            <a class="btn btn-default" href="#/posts/savepost" id="postSave">save</a>
-                            <a class="btn btn-danger" href="#" id="postDelete">delete</a>
-                            <span class="label label-danger" style="display:none;" id="saveerror">Save error</span>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="post-wrap-edit">
-                <div id="editContent">
-                    <textarea id="editmd"></textarea>
-                    <div id="edithtml" class="entry"></div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="loading" style="display: none;">
-    <div class="spinner">
-        <div class="dot1"></div>
-        <div class="dot2"></div>
-    </div>
-</div>
-</div>
-<script id="postsItem" type="text/mustache">
-{{#items}}
-{{#active}}
-<li class="nav-active">
-{{/active}}
-{{^active}}
-<li>
-{{/active}}
-    <a href="#/posts/{{type}}/{{num}}">{{title}}</a>
-</li>
-{{/items}}
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true } });
-</script>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/chenmo-tssz" class="avatar"><img src="https://avatars1.githubusercontent.com/u/16370861?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/chenmo-tssz">chenmo-tssz</a> maintains <a href="https://github.com/chenmo-tssz/boke">Boke</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/chenmo-tssz/boke/tarball/master" class="tar">tar</a><a href="https://github.com/chenmo-tssz/boke/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
 </body>
+</html>
